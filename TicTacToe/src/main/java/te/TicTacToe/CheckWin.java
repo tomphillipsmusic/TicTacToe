@@ -5,29 +5,29 @@ public class CheckWin {
 	private static String empty = "   ";
 
 	public static boolean checkWin(TicTacToe ticTacToe) {
-		String[][] board = ticTacToe.getBoard();
-		if (CheckWin.checkWinRowsCols(ticTacToe, board)) {
+
+		if (CheckWin.checkWinRowsCols(ticTacToe)) {
 			return true;
 		}
 
-		if (CheckWin.checkWinDiagonal(ticTacToe, board)) {
+		if (CheckWin.checkWinDiagonal(ticTacToe)) {
 			return true;
 		}
 
 		return false;
 	}
 
-	public static boolean checkWinRowsCols(TicTacToe ticTacToe, String[][] board) {
-
+	public static boolean checkWinRowsCols(TicTacToe ticTacToe) {
+		String[][] board = ticTacToe.getBoard();
 		for (int i = 0; i < ticTacToe.getROWS(); i++) {
 
 			// Check rows
-			if (checkWinRows(ticTacToe, i, board)) {
+			if (checkWinRows(ticTacToe, i)) {
 				return true;
 			}
 
 			// Check COLs
-			if (checkWinCols(ticTacToe, i, board)) {
+			if (checkWinCols(ticTacToe, i)) {
 				return true;
 			}
 		}
@@ -35,7 +35,8 @@ public class CheckWin {
 
 	}
 
-	public static boolean checkWinRows(TicTacToe ticTacToe, int i, String[][] board) {
+	public static boolean checkWinRows(TicTacToe ticTacToe, int i) {
+		String[][] board = ticTacToe.getBoard();
 		if (board[i][0].equals(marker) && board[i][1].equals(marker) && board[i][2].equals(empty)) {
 			ticTacToe.placeMark(i, 2, marker);
 			return true;
@@ -49,7 +50,8 @@ public class CheckWin {
 		return false;
 	}
 
-	public static boolean checkWinCols(TicTacToe ticTacToe, int i, String[][] board) {
+	public static boolean checkWinCols(TicTacToe ticTacToe, int i) {
+		String[][] board = ticTacToe.getBoard();
 		if (board[0][i].equals(marker) && board[1][i].equals(marker) && board[2][i].equals(empty)) {
 			ticTacToe.placeMark(2, i, marker);
 			return true;
@@ -63,7 +65,8 @@ public class CheckWin {
 		return false;
 	}
 
-	public static boolean checkWinDiagonal(TicTacToe ticTacToe, String[][] board) {
+	public static boolean checkWinDiagonal(TicTacToe ticTacToe) {
+		String[][] board = ticTacToe.getBoard();
 
 		if (board[0][0].equals(marker) && board[1][1].equals(marker) && board[2][2].equals(empty)) {
 			ticTacToe.placeMark(2, 2, marker);
