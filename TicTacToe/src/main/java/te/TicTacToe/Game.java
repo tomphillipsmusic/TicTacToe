@@ -1,30 +1,24 @@
 package te.TicTacToe;
 
+import java.util.Scanner;
+
 public class Game {
 
 	private final int ROWS = 3;
 	private final int COLS = 3;
 	private String board[][] = new String[ROWS][COLS];
 
-	
-	
 	public String[][] getBoard() {
 		return board;
 	}
-	
-	
 
 	public int getROWS() {
 		return ROWS;
 	}
 
-
-
 	public int getCOLS() {
 		return COLS;
 	}
-
-
 
 	// Creates an empty board
 	public void createBoard() {
