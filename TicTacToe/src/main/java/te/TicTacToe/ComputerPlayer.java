@@ -8,7 +8,7 @@ public class ComputerPlayer {
 		return marker;
 	}
 
-	public static void computerTurn(Game ticTacToe) {
+	public static void computerTurn(TicTacToe ticTacToe) {
 		boolean madeMove = false;
 		System.out.println("\n\nComputer's turn: \n");
 		CheckWin.checkWin(ticTacToe);
@@ -36,7 +36,7 @@ public class ComputerPlayer {
 
 	}
 
-	public static boolean checkIfComputerWon(Game ticTacToe) {
+	public static boolean checkIfComputerWon(TicTacToe ticTacToe) {
 		if (ticTacToe.isVictory(marker)) {
 			System.out.println("\nComputer Wins!");
 			ticTacToe.printBoard();

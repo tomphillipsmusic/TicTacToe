@@ -4,7 +4,7 @@ public class BlockOpponentWin {
 	
 	private static String marker = " O ";
 	
-	public static boolean blockOpponentCanWin(Game gameBoard) {
+	public static boolean blockOpponentCanWin(TicTacToe gameBoard) {
 
 		if (BlockOpponentWin.blockOpponentCanWinRowsCols(gameBoard)) {
 			return true;
@@ -16,7 +16,7 @@ public class BlockOpponentWin {
 
 	}
 	
-	public static boolean blockOpponentCanWinRowsCols(Game gameBoard) {
+	public static boolean blockOpponentCanWinRowsCols(TicTacToe gameBoard) {
 		String[][] board = gameBoard.getBoard();
 		String playerMarker = " X ";
 		String empty = "   ";
@@ -55,7 +55,7 @@ public class BlockOpponentWin {
 		return false;
 	}
 	
-	public static boolean blockOpponentCanWinDiagonal(Game gameBoard) {
+	public static boolean blockOpponentCanWinDiagonal(TicTacToe gameBoard) {
 		String[][] board = gameBoard.getBoard();
 		String playerMarker = " X ";
 		String empty = "   ";

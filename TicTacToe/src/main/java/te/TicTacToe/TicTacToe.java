@@ -2,7 +2,7 @@ package te.TicTacToe;
 
 import java.util.Scanner;
 
-public class Game {
+public class TicTacToe {
 
 	private final int ROWS = 3;
 	private final int COLS = 3;

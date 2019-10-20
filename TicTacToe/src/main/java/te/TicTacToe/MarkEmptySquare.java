@@ -4,7 +4,7 @@ public class MarkEmptySquare {
 
 	private static String marker = " O ";
 
-	public static boolean markEmptySquare(Game gameBoard) {
+	public static boolean markEmptySquare(TicTacToe gameBoard) {
 		if (markCenter(gameBoard)) {
 			return true;
 		}
@@ -20,7 +20,7 @@ public class MarkEmptySquare {
 		return false;
 	}
 
-	public static boolean markCenter(Game gameBoard) {
+	public static boolean markCenter(TicTacToe gameBoard) {
 		if (gameBoard.getBoard()[1][1].equals("   ")) {
 			gameBoard.placeMark(1, 1, marker);
 			return true;
@@ -28,7 +28,7 @@ public class MarkEmptySquare {
 		return false;
 	}
 
-	public static boolean markOppositeCorner(Game gameBoard) {
+	public static boolean markOppositeCorner(TicTacToe gameBoard) {
 		String[][] board = gameBoard.getBoard();
 		String playerMarker = " X ";
 
@@ -52,7 +52,7 @@ public class MarkEmptySquare {
 		return false;
 	}
 
-	public static boolean markEmptyCorner(Game gameBoard) {
+	public static boolean markEmptyCorner(TicTacToe gameBoard) {
 		String board[][] = gameBoard.getBoard();
 
 		if (board[2][2].equals("   ")) {
@@ -75,7 +75,7 @@ public class MarkEmptySquare {
 		return false;
 	}
 
-	public static boolean markEmptySide(Game gameBoard) {
+	public static boolean markEmptySide(TicTacToe gameBoard) {
 		String board[][] = gameBoard.getBoard();
 
 		if (board[0][1].equals("   ")) {
