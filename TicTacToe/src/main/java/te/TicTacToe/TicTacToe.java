@@ -39,9 +39,15 @@ public class TicTacToe {
 		}
 	}
 
-	public void placeMark(Integer x, Integer y, String player) {
-		if (board[x][y].equals(empty))
+	public boolean placeMark(Integer x, Integer y, String player) {
+		if (board[x][y].equals(empty)) {
 			board[x][y] = player;
+			return true;
+		}
+		System.out.println("You must select an empty space");
+		printBoard();
+		return false;
+
 	}
 
 	public boolean isVictory(String player) {

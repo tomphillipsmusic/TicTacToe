@@ -13,6 +13,7 @@ public class Main {
 
 		TicTacToe ticTacToe = new TicTacToe();
 		chooseOpponent(ticTacToe);
+		beginGame(ticTacToe);
 		int turnCounter = 0;
 		int maxNumberOfTurns = 9;
 
@@ -65,16 +66,6 @@ public class Main {
 		System.exit(0);
 	}
 
-	public static boolean canPlaceMark(TicTacToe ticTacToe, int xCoordinate, int yCoordinate) {
-		String empty = "   ";
-		if (ticTacToe.getBoard()[xCoordinate][yCoordinate].equals(empty)) {
-			return true;
-		}
-		System.out.println("You must select an empty square\n");
-		ticTacToe.printBoard();
-		return false;
-	}
-
 	public static boolean enterCoordinates(TicTacToe ticTacToe) {
 		int xCoordinate = 0, yCoordinate = 0;
 		boolean validCoordinates = false;
@@ -86,8 +77,7 @@ public class Main {
 				System.out.print("Enter the Y coordinate for where you would like to go: ");
 				userInput = input.nextLine();
 				yCoordinate = Integer.parseInt(userInput);
-				ticTacToe.placeMark(xCoordinate, yCoordinate, player);
-				validCoordinates = true;
+				validCoordinates = ticTacToe.placeMark(xCoordinate, yCoordinate, player);
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("You must select coordinates between 0 and 2");
 			} catch (NumberFormatException e) {
