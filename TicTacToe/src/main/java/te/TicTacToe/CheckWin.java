@@ -3,6 +3,18 @@ package te.TicTacToe;
 public class CheckWin {
 	private static String marker = " O ";
 	
+	public static boolean checkWin(Game gameBoard) {
+		if (CheckWin.checkWinRowsCols(gameBoard)) {
+			return true;
+		}
+
+		if (CheckWin.checkWinDiagonal(gameBoard)) {
+			return true;
+		}
+
+		return false;
+	}
+	
 	public static boolean checkWinRowsCols(Game gameBoard) {
 		String[][] board = gameBoard.getBoard();
 		String empty = "   ";

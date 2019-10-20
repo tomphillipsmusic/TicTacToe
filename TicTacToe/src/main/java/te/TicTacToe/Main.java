@@ -51,7 +51,7 @@ public class Main {
 				System.out.println("\n\nComputer's turn: \n");
 				String opponentMarker = opponent.getMarker();
 				boolean madeMove = false;
-				opponent.checkWin(ticTacToe);
+				CheckWin.checkWin(ticTacToe);
 				if (ticTacToe.isVictory(opponentMarker)) {
 					System.out.println("\nComputer Wins!");
 					ticTacToe.printBoard();
