@@ -10,6 +10,7 @@ public class ComputerPlayer {
 
 	public static void computerTurn(Game ticTacToe) {
 		boolean madeMove = false;
+		System.out.println("\n\nComputer's turn: \n");
 		CheckWin.checkWin(ticTacToe);
 		if (ticTacToe.isVictory(marker)) {
 			System.out.println("\nComputer Wins!");
@@ -18,45 +19,37 @@ public class ComputerPlayer {
 		}
 		if (!madeMove) {
 			madeMove = BlockOpponentWin.blockOpponentCanWin(ticTacToe);
-			if (ticTacToe.isVictory(marker)) {
-				System.out.println("\nComputer Wins!");
-				ticTacToe.printBoard();
-				System.exit(0);
-			}
+
 		}
 		if (!madeMove) {
 			madeMove = MarkEmptySquare.markCenter(ticTacToe);
-			if (ticTacToe.isVictory(marker)) {
-				System.out.println("\nComputer Wins!");
-				ticTacToe.printBoard();
-				System.exit(0);
-			}
+
 		}
 		if (!madeMove) {
 			madeMove = MarkEmptySquare.markOppositeCorner(ticTacToe);
-			if (ticTacToe.isVictory(marker)) {
-				System.out.println("\nComputer Wins!");
-				ticTacToe.printBoard();
-				System.exit(0);
-			}
+
 		}
 		if (!madeMove) {
 			madeMove = MarkEmptySquare.markEmptyCorner(ticTacToe);
-			if (ticTacToe.isVictory(marker)) {
-				System.out.println("\nComputer Wins!");
-				ticTacToe.printBoard();
-				System.exit(0);
-			}
+
 		}
 		if (!madeMove) {
 			madeMove = MarkEmptySquare.markEmptySide(ticTacToe);
-			if (ticTacToe.isVictory(marker)) {
-				System.out.println("\nComputer Wins!");
-				ticTacToe.printBoard();
-				System.exit(0);
-			}
+
+			
 		}
+		checkIfComputerWon(ticTacToe);
+		ticTacToe.printBoard();
 
 	}
 
+	public static boolean checkIfComputerWon(Game ticTacToe) {
+		if (ticTacToe.isVictory(marker)) {
+			System.out.println("\nComputer Wins!");
+			ticTacToe.printBoard();
+			System.exit(0);
+			return true;
+		}
+		return false;
+	}
 }
