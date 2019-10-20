@@ -7,29 +7,24 @@ public class Main {
 	private static Scanner input = new Scanner(System.in);
 	private static String userInput;
 	private static String player = " X ";
-	private static boolean computerOpponent;
+	private static boolean computerOpponent = false;
 
 	public static void main(String[] args) {
 
 		Game ticTacToe = new Game();
-		beginGame(ticTacToe);
+		chooseOpponent(ticTacToe);
 		int turnCounter = 0;
 		int maxNumberOfTurns = 9;
 
-		// While there is no victory, take turns putting down marks
 		while (turnCounter < maxNumberOfTurns) {
 			playerTurn(ticTacToe);
 			turnCounter++;
 
-			// Alternates player between X and O and increases turn count
 			if (!computerOpponent) {
 				player = ticTacToe.switchPlayer(player);
-				turnCounter++;
 			}
 
-			// Alternates between player and computer if computer opponent selected
 			else {
-				turnCounter++;
 				ComputerPlayer.computerTurn(ticTacToe);
 				turnCounter++;
 
@@ -39,12 +34,16 @@ public class Main {
 		input.close();
 	}
 
-	public static void beginGame(Game ticTacToe) {
+	public static void chooseOpponent(Game ticTacToe) {
 		System.out.println("Welcome to TicTacToe!\n\nChoose your opponent:\n1) Human\n2) Computer");
 		userInput = input.nextLine();
 		if (userInput.equals("2")) {
 			computerOpponent = true;
 		}
+
+	}
+
+	public static void beginGame(Game ticTacToe) {
 		System.out.println("Let's play TicTacToe! Xs go first");
 		ticTacToe.createBoard();
 		ticTacToe.printBoard();
@@ -52,11 +51,8 @@ public class Main {
 
 	public static void playerTurn(Game ticTacToe) {
 		System.out.println("\n\n" + player + "'s turn:");
-		boolean canPlaceMark = false;
 		enterCoordinates(ticTacToe);
 		ticTacToe.printBoard();
-
-		// Tests if game is over
 		if (ticTacToe.isVictory(player)) {
 			gameOver(player, ticTacToe);
 		}
@@ -68,6 +64,7 @@ public class Main {
 		ticTacToe.printBoard();
 		System.exit(0);
 	}
+
 	public static boolean canPlaceMark(Game ticTacToe, int xCoordinate, int yCoordinate) {
 		String empty = "   ";
 		if (ticTacToe.getBoard()[xCoordinate][yCoordinate].equals(empty)) {
@@ -93,11 +90,10 @@ public class Main {
 				validCoordinates = true;
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("You must select coordinates between 0 and 2");
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				System.out.println("You must enter coordinates");
 			}
-			
+
 		}
 		return true;
 

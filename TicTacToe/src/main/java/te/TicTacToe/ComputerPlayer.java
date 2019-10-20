@@ -12,15 +12,9 @@ public class ComputerPlayer {
 		boolean madeMove = false;
 		System.out.println("\n\nComputer's turn: \n");
 		CheckWin.checkWin(ticTacToe);
-		if (ticTacToe.isVictory(marker)) {
-			System.out.println("\nComputer Wins!");
-			ticTacToe.printBoard();
-			System.exit(0);
-		}
-		if (!madeMove) {
-			madeMove = BlockOpponentWin.blockOpponentCanWin(ticTacToe);
+		checkIfComputerWon(ticTacToe);
+		madeMove = BlockOpponentWin.blockOpponentCanWin(ticTacToe);
 
-		}
 		if (!madeMove) {
 			madeMove = MarkEmptySquare.markCenter(ticTacToe);
 
@@ -36,7 +30,6 @@ public class ComputerPlayer {
 		if (!madeMove) {
 			madeMove = MarkEmptySquare.markEmptySide(ticTacToe);
 
-			
 		}
 		checkIfComputerWon(ticTacToe);
 		ticTacToe.printBoard();
