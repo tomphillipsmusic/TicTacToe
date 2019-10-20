@@ -7,6 +7,8 @@ public class Main {
 	private static Scanner input = new Scanner(System.in);
 	private static String userInput;
 	private static String player = " X ";
+	private static int xCoordinate;
+	private static int yCoordinate;
 
 	public static void main(String[] args) {
 
@@ -21,7 +23,6 @@ public class Main {
 		System.out.println("Let's play TicTacToe! Xs go first");
 		ticTacToe.createBoard();
 		ticTacToe.printBoard();
-		int xCoordinate, yCoordinate;
 		int turnCounter = 0;
 
 		// While there is no victory, take turns putting down marks
@@ -51,12 +52,16 @@ public class Main {
 
 	public static void playerTurn(Game ticTacToe) {
 		System.out.println("\n\n" + player + "'s turn:");
+		boolean canPlaceMark = false;
+		while (!canPlaceMark) {
 		System.out.print("\n" + "Enter the X coordinate for where you would like to go: ");
 		userInput = input.nextLine();
-		int xCoordinate = Integer.parseInt(userInput);
+		xCoordinate = Integer.parseInt(userInput);
 		System.out.print("Enter the Y coordinate for where you would like to go: ");
 		userInput = input.nextLine();
-		int yCoordinate = Integer.parseInt(userInput);
+		yCoordinate = Integer.parseInt(userInput);
+		canPlaceMark = canPlaceMark(ticTacToe, xCoordinate, yCoordinate);
+		}
 		ticTacToe.placeMark(xCoordinate, yCoordinate, player);
 		ticTacToe.printBoard();
 
@@ -67,6 +72,16 @@ public class Main {
 			System.exit(0);
 		}
 
+	}
+	
+	public static boolean canPlaceMark(Game ticTacToe, int xCoordinate, int yCoordinate) {
+		String empty = "   ";
+		if (ticTacToe.getBoard()[xCoordinate][yCoordinate].equals(empty)) {
+			return true;
+		}
+		System.out.println("You must select an empty square\n");
+		ticTacToe.printBoard();
+		return false;
 	}
 
 }
