@@ -1,6 +1,6 @@
 # TicTacToe
 
-  For this project, I created a playable version of Tic-Tac-Toe on the command line using Java. When the program begins, the user will have the choice of selecting a human or computer opponent. If the user selects a computer opponent, the computer will block the user's moves each time, preventing them from every winning. If the user selects a human opponent, the game will allow two users to alternate between placing X's or O's on the board until someone wins or there is a draw. 
+  For this project, I created a playable version of Tic-Tac-Toe on the command line using Java. When the program begins, the user will have the choice of selecting a human or computer opponent. If the user selects a computer opponent, the computer will block the user's moves each time, preventing them from winning. If the user selects a human opponent, the game will allow two users to alternate between placing X's or O's on the board until someone wins or there is a draw. 
 
 ## What I Learned
 
